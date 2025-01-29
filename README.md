@@ -1,100 +1,70 @@
-Weather Prediction App
-This is a Streamlit-based web application that allows users to fetch and visualize weather data for any city using the OpenWeatherMap API. The app provides real-time weather information, including temperature, humidity, and weather description. Users can also download the weather data as a CSV file and visualize the average temperature by city in a bar chart.
+# Weather Prediction App
 
-Features
-Fetch Weather Data:
+This Python application uses Streamlit, requests, pandas, and matplotlib to fetch and display weather information for cities worldwide. It leverages the OpenWeatherMap API to retrieve real-time weather data and presents it in a user-friendly interface.  Users can search for weather by city name, download the search history as a CSV file, and visualize the average temperature for searched cities in a bar graph.
 
-Enter a city name to get real-time weather information, including temperature, humidity, and weather description.
+## Features
 
-Download Weather Data:
+* **Real-time Weather Data:** Fetches current weather conditions, including temperature and description, from the OpenWeatherMap API.
+* **City Search:** Allows users to search for weather information by city name.
+* **Data Storage:** Stores the history of weather searches in a Streamlit session, enabling data download and visualization.
+* **CSV Download:** Provides a button to download the weather search history as a CSV file for further analysis.
+* **Temperature Visualization:** Generates a bar graph showing the average temperature for the cities searched.
+* **User-Friendly Interface:** Uses Streamlit to create an interactive and easy-to-use web application.
+* **API Key Management:** Securely manages the OpenWeatherMap API key using environment variables.
 
-Download the weather data for all searched cities as a CSV file.
+## Requirements
 
-Visualize Data:
+* Python 3.7 or higher
+* Streamlit
+* requests
+* pandas
+* matplotlib
 
-View a bar chart showing the average temperature for all searched cities.
+You can install the required libraries using pip:
 
-User-Friendly Interface:
-
-Simple and intuitive design with a clean layout.
-
-Prerequisites
-Before running the app, ensure you have the following installed:
-
-Python 3.7 or higher
-
-Streamlit
-
-Requests
-
-Pandas
-
-Matplotlib
-
-Installation
-Clone the repository or download the source code.
-
-Install the required Python packages using pip:
-
-bash
-Copy
+```bash
 pip install streamlit requests pandas matplotlib
-Obtain an API key from OpenWeatherMap. Replace the placeholder "your_api_key_here" in the code with your actual API key.
+Setup and Usage
+Clone the Repository:
 
-Usage
-Run the Streamlit app:
+Bash
 
-bash
-Copy
-streamlit run weather_app.py
-Open the provided URL in your web browser to access the app.
+git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://www.google.com/search?q=https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)  # Replace with your repo URL
+cd YOUR_REPOSITORY_NAME
+Set API Key:
 
-Enter a city name in the input field and click "Get Weather" to fetch the weather data.
+Create an account at OpenWeatherMap and obtain an API key.
+Set the API key as an environment variable named OPENWEATHER_API_KEY. This is the recommended approach for security. In Linux/macOS:
+Bash
 
-Use the "Download Weather Data as CSV" button to download the weather data for all searched cities.
+export OPENWEATHER_API_KEY="YOUR_API_KEY"
+In Windows:
+PowerShell
 
-Click "Show Weather Graph" to visualize the average temperature for all searched cities in a bar chart.
+$env:OPENWEATHER_API_KEY = "YOUR_API_KEY"
+Alternatively, you can set the API key as the default value in the script (less secure):
+Python
 
-Code Structure
-weather_app.py: The main Streamlit application script.
+API_KEY = os.getenv("OPENWEATHER_API_KEY", "YOUR_API_KEY") # Not recommended for production
+Run the App:
 
-Fetches weather data using the OpenWeatherMap API.
+Bash
 
-Stores searched cities and their weather data in session state.
+streamlit run your_script_name.py  # Replace your_script_name.py with the actual name
+Access the App:
+Open your web browser and go to the URL displayed in the terminal (usually http://localhost:8501).
 
-Provides options to download data and visualize it.
-
-Dependencies:
-
-streamlit: For building the web app.
-
-requests: For making API calls to OpenWeatherMap.
-
-pandas: For handling and exporting data.
-
-matplotlib: For plotting the bar chart.
-
-Screenshots
-Weather Data Fetching
-Weather Data Fetching
-
-CSV Download
-CSV Download
-
-Weather Graph
-Weather Graph
-
-Notes
-Ensure you have a stable internet connection to fetch weather data.
-
-The app uses the free tier of the OpenWeatherMap API, which has a limit of 60 requests per minute.
-
-Replace the placeholder API key with your own key to avoid errors.
-
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-Author
-Haider khan
-hadikhan95383@gmail.com
-GitHub Profile
+Code Explanation
+get_weather(city): This function fetches weather data from the OpenWeatherMap API using the provided city name. It handles API requests, error checking, and data extraction. It also stores the search results in the Streamlit session state.
+main(): This function sets up the Streamlit user interface, including text input for city name, buttons for fetching weather and downloading data, and the display area for results and graphs.
+Session State: Streamlit's session state is used to store the history of weather searches, making it available for download and visualization.
+Data Visualization: The code uses matplotlib to create a bar graph of average temperatures.
+CSV Download: The st.download_button is used to provide a convenient way to download the search data as a CSV file.
+Example
+Enter a city name in the text input box.
+Click the "Get Weather" button. The current weather information for the city will be displayed.
+Repeat step 1 and 2 for other cities.
+Click the "Download Weather Data as CSV" button to download the search history.
+Click the "Show Weather Graph" button to visualize the average temperature for the searched cities.
+Contributing
+Contributions are welcome! Please feel free to submit pull requests or open issues.
