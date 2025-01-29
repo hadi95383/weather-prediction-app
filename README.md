@@ -29,7 +29,7 @@ Clone the Repository:
 
 Bash
 
-git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://www.google.com/search?q=https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)  # Replace with your repo URL
+git clone [https://github.com/hadi95383/weather-prediction-app.git](https://www.google.com/search?q=https://github.com/hadi95383/Yweather-prediction-app.git)  
 cd YOUR_REPOSITORY_NAME
 Set API Key:
 
